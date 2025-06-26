@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta charset="UTF-8" />
-    <title>Website Matematika</title>
+    <meta name="viewport" content="width=device-width, initi">
+    <title>Kalkulator Matematika</title>
     
     <!-- CSS External -->
      <link rel="stylesheet" href="css/style.css">
@@ -12,12 +13,11 @@
     <header>
         <h1>Welcome to My Web</h1>
 
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-
+        <p>Kalkulator ini adalah kalkulator yang bertujuan menghitung luas dan keliling dari bangun ruang, khususnya segitiga dan jajar genjang. Mari menghitung lebih mudah menggunakan kalkulator</p>
         <!-- Navigation -->
         <nav>
-            <a class="bg-lightblue" href="">Segitiga</a>
-            <a class="bg-lightpink" href="">Persegi </a>
+            <a class="bg-lightblue" href="#Segitiga">Segitiga</a>
+            <a class="bg-lightpink" href="#Jajar Genjang">Jajar Genjang </a>
         </nav>
     </header>
     
@@ -25,12 +25,12 @@
     <main>
         <!-- Luas -->
         <section>
-            <header>
+            <header id="Segitiga">
                 <h2> Luas Segitiga</h2>
             </header>
 
             <!-- Konten Luas -->
-            <div class="formula img img-luas"></div>
+            <div class="formula-img img-luas-segitiga"></div>
             <p>Rumus Luas Segitiga:1/2 x alas x tinggi</p>
 
             <!-- Form Luas -->
@@ -50,7 +50,38 @@
                 </div>
 
                 <div>
-                    <button>Hitung</button>
+                    <button type="button" onclick="hitungLuasSegitiga()">Hitung Luas</button>
+                    <div id="hasil-luas-segitiga" class="hasil"></div>
+                </div>
+            </form>
+
+            <header id="Jajar Genjang">
+                <h2> Luas Jajar Genjang</h2>
+            </header>
+
+            <!-- Konten Luas -->
+            <div class="formula-img img-luas-jajargenjang"></div>
+            <p>Rumus Luas Jajar Genjang: alas X tinggi</p>
+
+            <!-- Form Luas -->
+            <form>
+                <header>
+                    <h2>Form Luas Jajar Genjang</h2>
+                </header>
+                
+                <div>
+                    <label for="alas-jg">Alas</label>
+                    <input type="number" id="alas-jg" name="alas-jg" placeholder="Masukkan Alas Jajar Genjang"> 
+                </div>
+
+                <div>
+                    <label for="tinggi-jg">Tinggi</label>
+                    <input type="number" id="tinggi-jg" name="tinggi-jg" placeholder="Masukkan Tinggi Jajar Genjang">
+                </div>
+
+                <div>
+                    <button type="button" onclick="hitungLuasJajarGenjang()">Hitung Luas</button>
+                    <div id="hasil-luas-jg" class="hasil"></div>
                 </div>
             </form>
 
@@ -58,11 +89,11 @@
 
         <!-- Keliling -->
          <section>
-            <header>
+            <header id="Segitiga">
                 <h2>Keliling Segitiga</h2>
             </header>
             <!-- Konten Keliling -->
-             <div class="formula img img-keliling"></div>
+             <div class="formula-img img-keliling-segitiga"></div>
              <p>Rumus Keliling Segitiga: a + b + c</p>
              
              <!-- Form Keliling -->
@@ -87,17 +118,106 @@
                 </div>
 
                 <div>
-                    <button>Hitung</label>
+                     <button type="button" onclick="hitungKelilingSegitiga()">Hitung Luas</button>
+                     <div id="hasil-keliling-segitiga" class="hasil"></div>
+                </div>
+              </form>
+
+            <header id="Jajar Genjang">
+                <h2>Keliling Jajar Genjang</h2>
+            </header>
+            <!-- Konten Keliling -->
+             <div class="formula-img img-keliling-jajargenjang"></div>
+             <p>Rumus Keliling Jajar Genjang: a + b + c + d</p>
+             
+             <!-- Form Keliling -->
+              <form>
+                <header>
+                    <h2>Form Keliling Jajar Genjang</h2>
+                </header>
+            
+                <div>
+                    <label\ for="sisi-a-jg">Sisi A</label>
+                    <input type="number" id="sisi-a-jg" name="sisi-a-jg" placeholder="Masukkan sisi A">
+                </div>
+
+                <div>
+                    <label\ for="sisi-b-jg">Sisi B</label>
+                    <input type="number" id="sisi-b-jg" name="sisi-b-jg" placeholder="Masukkan sisi B">
+                </div>
+
+                <div>
+                    <label\ for="sisi-c-jg">Sisi C</label>
+                    <input type="number" id="sisi-c-jg" name="sisi-c-jg" placeholder="Masukkan sisi C">
+                </div>
+
+                <div>
+                    <label\ for="sisi-d-jg">Sisi D</label>
+                    <input type="number" id="sisi-d-jg" name="sisi-d-jg" placeholder="Masukkan sisi D">
+                </div>
+
+                <div>
+                     <button type="button" onclick="hitungKelilingJajarGenjang()">Hitung Luas</button>
+                     <div id="hasil-keliling-jg" class="hasil"></div>
                 </div>
               </form>
 
          </section>
     </main>
 
+<script>
+    function hitungLuasSegitiga() {
+      const alas = parseFloat(document.getElementById("alas").value);
+      const tinggi = parseFloat(document.getElementById("tinggi").value);
+      if (isNaN(alas) || isNaN(tinggi)) {
+        document.getElementById("hasil-luas-segitiga").textContent = "Masukkan angka yang benar.";
+        return;
+      }
+      const hasil = 0.5 * alas * tinggi;
+      document.getElementById("hasil-luas-segitiga").textContent = `Luas = ${hasil} cm²`;
+    }
+
+    function hitungLuasJajarGenjang() {
+      const alasjg = parseFloat(document.getElementById("alas-jg").value);
+      const tinggijg = parseFloat(document.getElementById("tinggi-jg").value);
+      if (isNaN(alasjg) || isNaN(tinggijg)) {
+        document.getElementById("hasil-luas-jg").textContent = "Masukkan angka yang benar.";
+        return;
+      }
+      const hasil = alasjg * tinggijg;
+      document.getElementById("hasil-luas-jg").textContent = `Luas = ${hasil} cm²`;
+    }
+
+    function hitungKelilingSegitiga() {
+      const a = parseFloat(document.getElementById("sisi-a").value);
+      const b = parseFloat(document.getElementById("sisi-b").value);
+      const c = parseFloat(document.getElementById("sisi-c").value);
+      if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        document.getElementById("hasil-keliling-segitiga").textContent = "Masukkan semua sisi.";
+        return;
+      }
+      const hasil = a + b + c;
+      document.getElementById("hasil-keliling-segitiga").textContent = `Keliling = ${hasil} cm`;
+    }
+
+    function hitungKelilingJajarGenjang() {
+      const a = parseFloat(document.getElementById("sisi-a-jg").value);
+      const b = parseFloat(document.getElementById("sisi-b-jg").value);
+      const c = parseFloat(document.getElementById("sisi-c-jg").value);
+      const d = parseFloat(document.getElementById("sisi-d-jg").value);
+      if (isNaN(a) || isNaN(b)) {
+        document.getElementById("hasil-keliling-jg").textContent = "Masukkan dua sisi.";
+        return;
+      }
+      const hasil = a + b + c + d;
+      document.getElementById("hasil-keliling-jg").textContent = `Keliling = ${hasil} cm`;
+    }
+  </script>
     <!-- Footer Content -->
     <footer>
         <p>&copy;2025 Jahra, All rights reserved</p>
         <p>Created by <a href="https://github.com/jahranabila">Jahra</a>></p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

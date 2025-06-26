@@ -1,69 +1,194 @@
-header{
-    text-align: center;
+/* Reset default browser style */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-nav{
-    display: flex;
-    flex-direction: column;
+/* Body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-nav a{
-    border-radius: 20px;
-    height: 50px;
-    align-content: center;
-    color: black;
-    text-decoration: none;
-
-}
-.bg-lightblue{
-    background-color: lightskyblue;
+/* Kalkulator Container */
+.calculator-container {
+  max-width: 320px;
+  background-color: #ffffff;
+  padding: 20px;
+  margin: 0 auto 40px auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.bg-lightpink{
-    background-color: lightpink;
+.calculator-container h1 {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-main{
-    display:flex;
-    gap: 32px;
+#display {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
-main section{
-    flex: 1;
-    text-align: center;
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
-.formula.img{
-    height:200px;
+.buttons button {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #0056b3;
+}
+
+/* Section Header */
+header h1,
+header h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display:flex;
+  gap: 32px;
+}
+
+main>section {
+    flex: 1
+}
+
+.formula-img,
+.img-luas-segitiga,
+.img-keliling-segitiga {
+    height: 265px;
     background-position: center;
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.img-luas{
-    background-image: url(https://picsum.photos/id/237/200/300);
+.img-luas-segitiga {
+    background-image: url('https://i.pinimg.com/736x/bd/82/7a/bd827a48267b3c8e9d4c4a50584f000f.jpg');
 }
 
-.img-keliling{
-    background-image: url(https://picsum.photos/id/237/200/300);
+.img-keliling-segitiga {
+    background-image: url('https://i.pinimg.com/736x/73/05/65/7305656bded98faca2875f37e6af4de4.jpg');
 }
 
-/* Form Style */
-input[type=number] {
+.img-luas-jajargenjang {
+    background-image: url('https://i.pinimg.com/736x/a5/54/a9/a554a9c3403dd4a264a27912bf02ea7a.jpg');
+}
+
+.img-keliling-jajargenjang {
+    background-image: url('https://i.pinimg.com/736x/3c/c4/fc/3cc4fc177250b8553e272ee0e982d509.jpg');
+}
+
+
+
+form {
+  margin-bottom: 30px;
+  background-color: #f0f4f8;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+form input {
   width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
+  padding: 10px;
+  font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-} 
-button {
-    background-color: lightgreen;
-    border-radius: 8px;
-    height: 30px;
-    border: none;
+  border-radius: 6px;
 }
 
-footer {
-    text-align: center;
+form button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #28a745;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  
+}
+
+nav a {
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.bg-lightblue {
+  background-color: #17a2b8;
+}
+
+.bg-lightpink {
+  background-color: #e83e8c;
+}
+
+nav a:hover {
+  opacity: 0.85;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+} 
