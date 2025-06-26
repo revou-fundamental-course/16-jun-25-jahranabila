@@ -1,171 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalkulator Segitiga dan Jajar Genjang</title>
-    
-    <!-- CSS External -->
-     <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Segitiga dan Jajar Genjang</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Head Content -->
-    <header>
-        <h1>Kalkulator Segitiga dan Jajar Genjang</h1>
+  <header>
+    <h1>Kalkulator Segitiga dan Jajar Genjang</h1>
+    <p>Kalkulator ini bertujuan menghitung luas dan keliling bangun datar segitiga dan jajar genjang. Mari menghitung lebih mudah menggunakan kalkulator ini.</p>
+    <nav>
+      <a class="bg-lightblue" href="#segitiga-luas">Segitiga</a>
+      <a class="bg-lightpink" href="#jajar-genjang-luas">Jajar Genjang</a>
+    </nav>
+  </header>
 
-        <p>Kalkulator ini adalah kalkulator yang bertujuan menghitung luas dan keliling dari bangun ruang, khususnya segitiga dan jajar genjang. Mari menghitung lebih mudah menggunakan kalkulator</p>
-        <!-- Navigation -->
-        <nav>
-            <a class="bg-lightblue" href="#Segitiga">Segitiga</a>
-            <a class="bg-lightpink" href="#Jajar Genjang">Jajar Genjang </a>
-        </nav>
-    </header>
-    
-    <!-- Main Content -->
-    <main>
-        <!-- Luas -->
-        <section>
-            <header id="Segitiga">
-                <h2> Luas Segitiga</h2>
-            </header>
+  <main>
+    <section>
+      <!-- Luas Segitiga -->
+      <header id="segitiga-luas">
+        <h2>Luas Segitiga</h2>
+      </header>
+      <div class="formula-img img-luas-segitiga"></div>
+      <p>Rumus Luas Segitiga: ½ × alas × tinggi</p>
 
-            <!-- Konten Luas -->
-            <div class="formula-img img-luas-segitiga"></div>
-            <p>Rumus Luas Segitiga:1/2 x alas x tinggi</p>
+      <form>
+        <header><h2>Form Luas Segitiga</h2></header>
+        <div>
+          <label for="alas">Alas</label>
+          <input type="number" id="alas" name="alas" placeholder="Masukkan Alas Segitiga">
+        </div>
+        <div>
+          <label for="tinggi">Tinggi</label>
+          <input type="number" id="tinggi" name="tinggi" placeholder="Masukkan Tinggi Segitiga">
+        </div>
+        <div>
+          <button type="button" onclick="hitungLuasSegitiga()">Hitung Luas</button>
+          <div id="hasil-luas-segitiga" class="hasil"></div>
+        </div>
+      </form>
 
-            <!-- Form Luas -->
-            <form>
-                <header>
-                    <h2>Form Luas Segitiga</h2>
-                </header>
-                
-                <div>
-                    <label for="alas">Alas</label>
-                    <input type="number" id="alas" name="alas" placeholder="Masukkan Alas Segitiga"> 
-                </div>
+      <!-- Luas Jajar Genjang -->
+      <header id="jajar-genjang-luas">
+        <h2>Luas Jajar Genjang</h2>
+      </header>
+      <div class="formula-img img-luas-jajargenjang"></div>
+      <p>Rumus Luas Jajar Genjang: alas × tinggi</p>
 
-                <div>
-                    <label for="tinggi">Tinggi</label>
-                    <input type="number" id="tinggi" name="tinggi" placeholder="Masukkan Tinggi Segitiga">
-                </div>
+      <form>
+        <header><h2>Form Luas Jajar Genjang</h2></header>
+        <div>
+          <label for="alas-jg">Alas</label>
+          <input type="number" id="alas-jg" name="alas-jg" placeholder="Masukkan Alas Jajar Genjang">
+        </div>
+        <div>
+          <label for="tinggi-jg">Tinggi</label>
+          <input type="number" id="tinggi-jg" name="tinggi-jg" placeholder="Masukkan Tinggi Jajar Genjang">
+        </div>
+        <div>
+          <button type="button" onclick="hitungLuasJajarGenjang()">Hitung Luas</button>
+          <div id="hasil-luas-jg" class="hasil"></div>
+        </div>
+      </form>
+    </section>
 
-                <div>
-                    <button type="button" onclick="hitungLuasSegitiga()">Hitung Luas</button>
-                    <div id="hasil-luas-segitiga" class="hasil"></div>
-                </div>
-            </form>
+    <section>
+      <!-- Keliling Segitiga -->
+      <header id="segitiga-keliling">
+        <h2>Keliling Segitiga</h2>
+      </header>
+      <div class="formula-img img-keliling-segitiga"></div>
+      <p>Rumus Keliling Segitiga: a + b + c</p>
 
-            <header id="Jajar Genjang">
-                <h2> Luas Jajar Genjang</h2>
-            </header>
+      <form>
+        <header><h2>Form Keliling Segitiga</h2></header>
+        <div>
+          <label for="sisi-a">Sisi A</label>
+          <input type="number" id="sisi-a" name="sisi-a" placeholder="Masukkan sisi A">
+        </div>
+        <div>
+          <label for="sisi-b">Sisi B</label>
+          <input type="number" id="sisi-b" name="sisi-b" placeholder="Masukkan sisi B">
+        </div>
+        <div>
+          <label for="sisi-c">Sisi C</label>
+          <input type="number" id="sisi-c" name="sisi-c" placeholder="Masukkan sisi C">
+        </div>
+        <div>
+          <button type="button" onclick="hitungKelilingSegitiga()">Hitung Keliling</button>
+          <div id="hasil-keliling-segitiga" class="hasil"></div>
+        </div>
+      </form>
 
-            <!-- Konten Luas -->
-            <div class="formula-img img-luas-jajargenjang"></div>
-            <p>Rumus Luas Jajar Genjang: alas X tinggi</p>
+      <!-- Keliling Jajar Genjang -->
+      <header id="jajar-genjang-keliling">
+        <h2>Keliling Jajar Genjang</h2>
+      </header>
+      <div class="formula-img img-keliling-jajargenjang"></div>
+      <p>Rumus Keliling Jajar Genjang: a + b + c + d</p>
 
-            <!-- Form Luas -->
-            <form>
-                <header>
-                    <h2>Form Luas Jajar Genjang</h2>
-                </header>
-                
-                <div>
-                    <label for="alas-jg">Alas</label>
-                    <input type="number" id="alas-jg" name="alas-jg" placeholder="Masukkan Alas Jajar Genjang"> 
-                </div>
+      <form>
+        <header><h2>Form Keliling Jajar Genjang</h2></header>
+        <div>
+          <label for="sisi-a-jg">Sisi A</label>
+          <input type="number" id="sisi-a-jg" name="sisi-a-jg" placeholder="Masukkan sisi A">
+        </div>
+        <div>
+          <label for="sisi-b-jg">Sisi B</label>
+          <input type="number" id="sisi-b-jg" name="sisi-b-jg" placeholder="Masukkan sisi B">
+        </div>
+        <div>
+          <label for="sisi-c-jg">Sisi C</label>
+          <input type="number" id="sisi-c-jg" name="sisi-c-jg" placeholder="Masukkan sisi C">
+        </div>
+        <div>
+          <label for="sisi-d-jg">Sisi D</label>
+          <input type="number" id="sisi-d-jg" name="sisi-d-jg" placeholder="Masukkan sisi D">
+        </div>
+        <div>
+          <button type="button" onclick="hitungKelilingJajarGenjang()">Hitung Keliling</button>
+          <div id="hasil-keliling-jg" class="hasil"></div>
+        </div>
+      </form>
+    </section>
+  </main>
 
-                <div>
-                    <label for="tinggi-jg">Tinggi</label>
-                    <input type="number" id="tinggi-jg" name="tinggi-jg" placeholder="Masukkan Tinggi Jajar Genjang">
-                </div>
-
-                <div>
-                    <button type="button" onclick="hitungLuasJajarGenjang()">Hitung Luas</button>
-                    <div id="hasil-luas-jg" class="hasil"></div>
-                </div>
-            </form>
-
-        </section>
-
-        <!-- Keliling -->
-         <section>
-            <header id="Segitiga">
-                <h2>Keliling Segitiga</h2>
-            </header>
-            <!-- Konten Keliling -->
-             <div class="formula-img img-keliling-segitiga"></div>
-             <p>Rumus Keliling Segitiga: a + b + c</p>
-             
-             <!-- Form Keliling -->
-              <form>
-                <header>
-                    <h2>Form Keliling Segitiga</h2>
-                </header>
-            
-                <div>
-                    <label\ for="sisi-a">Sisi A</label>
-                    <input type="number" id="sisi-a" name="sisi-a" placeholder="Masukkan sisi A">
-                </div>
-
-                <div>
-                    <label\ for="sisi-b">Sisi B</label>
-                    <input type="number" id="sisi-b" name="sisi-b" placeholder="Masukkan sisi B">
-                </div>
-
-                <div>
-                    <label\ for="sisi-c">Sisi C</label>
-                    <input type="number" id="sisi-c" name="sisi-c" placeholder="Masukkan sisi C">
-                </div>
-
-                <div>
-                     <button type="button" onclick="hitungKelilingSegitiga()">Hitung Luas</button>
-                     <div id="hasil-keliling-segitiga" class="hasil"></div>
-                </div>
-              </form>
-
-            <header id="Jajar Genjang">
-                <h2>Keliling Jajar Genjang</h2>
-            </header>
-            <!-- Konten Keliling -->
-             <div class="formula-img img-keliling-jajargenjang"></div>
-             <p>Rumus Keliling Jajar Genjang: a + b + c + d</p>
-             
-             <!-- Form Keliling -->
-              <form>
-                <header>
-                    <h2>Form Keliling Jajar Genjang</h2>
-                </header>
-            
-                <div>
-                    <label\ for="sisi-a-jg">Sisi A</label>
-                    <input type="number" id="sisi-a-jg" name="sisi-a-jg" placeholder="Masukkan sisi A">
-                </div>
-
-                <div>
-                    <label\ for="sisi-b-jg">Sisi B</label>
-                    <input type="number" id="sisi-b-jg" name="sisi-b-jg" placeholder="Masukkan sisi B">
-                </div>
-
-                <div>
-                    <label\ for="sisi-c-jg">Sisi C</label>
-                    <input type="number" id="sisi-c-jg" name="sisi-c-jg" placeholder="Masukkan sisi C">
-                </div>
-
-                <div>
-                    <label\ for="sisi-d-jg">Sisi D</label>
-                    <input type="number" id="sisi-d-jg" name="sisi-d-jg" placeholder="Masukkan sisi D">
-                </div>
-
-                <div>
-                     <button type="button" onclick="hitungKelilingJajarGenjang()">Hitung Luas</button>
-                     <div id="hasil-keliling-jg" class="hasil"></div>
-                </div>
-              </form>
-
-         </section>
-    </main>
-
-<script>
+  <!-- Script -->
+  <script>
     function hitungLuasSegitiga() {
       const alas = parseFloat(document.getElementById("alas").value);
       const tinggi = parseFloat(document.getElementById("tinggi").value);
@@ -178,13 +140,13 @@
     }
 
     function hitungLuasJajarGenjang() {
-      const alasjg = parseFloat(document.getElementById("alas-jg").value);
-      const tinggijg = parseFloat(document.getElementById("tinggi-jg").value);
-      if (isNaN(alasjg) || isNaN(tinggijg)) {
+      const alas = parseFloat(document.getElementById("alas-jg").value);
+      const tinggi = parseFloat(document.getElementById("tinggi-jg").value);
+      if (isNaN(alas) || isNaN(tinggi)) {
         document.getElementById("hasil-luas-jg").textContent = "Masukkan angka yang benar.";
         return;
       }
-      const hasil = alasjg * tinggijg;
+      const hasil = alas * tinggi;
       document.getElementById("hasil-luas-jg").textContent = `Luas = ${hasil} cm²`;
     }
 
@@ -205,19 +167,20 @@
       const b = parseFloat(document.getElementById("sisi-b-jg").value);
       const c = parseFloat(document.getElementById("sisi-c-jg").value);
       const d = parseFloat(document.getElementById("sisi-d-jg").value);
-      if (isNaN(a) || isNaN(b)) {
-        document.getElementById("hasil-keliling-jg").textContent = "Masukkan dua sisi.";
+      if (isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d)) {
+        document.getElementById("hasil-keliling-jg").textContent = "Masukkan semua sisi.";
         return;
       }
       const hasil = a + b + c + d;
       document.getElementById("hasil-keliling-jg").textContent = `Keliling = ${hasil} cm`;
     }
   </script>
-    <!-- Footer Content -->
-    <footer>
-        <p>&copy;2025 Jahra, All rights reserved</p>
-        <p>Created by <a href="https://github.com/jahranabila">Jahra</a>></p>
-    </footer>
-    <script src="script.js"></script>
+
+  <footer>
+    <p>&copy; 2025 Jahra, All rights reserved</p>
+    <p>Created by <a href="https://github.com/jahranabila">Jahra</a></p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
